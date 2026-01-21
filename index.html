@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>我的个人主页</title>
+    <style>
+        /* 这里是 CSS：负责网页长什么样 */
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f0f2f5;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        /* 个人卡片的样式 */
+        .card {
+            background-color: white;
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            text-align: center;
+            max-width: 350px;
+            width: 100%;
+            transition: background-color 0.3s;
+        }
+
+        /* 头像样式 */
+        .avatar {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            background-color: #3498db;
+            color: white;
+            font-size: 40px;
+            line-height: 100px;
+            margin: 0 auto 20px;
+        }
+
+        h1 { margin: 10px 0; font-size: 24px; }
+        p { color: #666; font-size: 16px; margin-bottom: 30px; }
+
+        /* 按钮样式 */
+        button {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            background-color: #3498db;
+            color: white;
+            transition: transform 0.1s;
+        }
+        button:active { transform: scale(0.95); }
+
+        /* 夜间模式的样式 */
+        body.dark-mode { background-color: #2c3e50; }
+        body.dark-mode .card { background-color: #34495e; color: white; }
+        body.dark-mode p { color: #ccc; }
+    </style>
+</head>
+<body>
+
+    <div class="card">
+        <div class="avatar">我</div>
+        
+        <h1>你好，我是练习生</h1>
+        <p>这是我在 GitHub 上部署的第一个网页。<br>我很喜欢编程和探索新事物。</p>
+        
+        <button onclick="toggleTheme()">🌙 切换夜间模式</button>
+    </div>
+
+    <script>
+        // 这里是 JavaScript：负责网页的动作
+        function toggleTheme() {
+            var element = document.body;
+            var btn = document.querySelector("button");
+            
+            // 在 body 标签上切换 'dark-mode' 这个类
+            element.classList.toggle("dark-mode");
+            
+            // 改变按钮文字
+            if (element.classList.contains("dark-mode")) {
+                btn.innerHTML = "☀️ 切换日间模式";
+                btn.style.backgroundColor = "#e67e22";
+            } else {
+                btn.innerHTML = "🌙 切换夜间模式";
+                btn.style.backgroundColor = "#3498db";
+            }
+        }
+    </script>
+
+</body>
+</html>
